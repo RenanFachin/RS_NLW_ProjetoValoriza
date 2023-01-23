@@ -1,21 +1,22 @@
-import * as dotenv from 'dotenv'
-dotenv.config()
+// Variáveis de ambiente
+import 'dotenv/config'
 
+// Express
 import express from 'express'
+
+// importar o router
+import { router } from './routes'
 
 // Inicializando o express
 const app = express()
 
-app.get('/test', (request, response) => {
-    return response.send("Olá NLW")
-})
+// Dizendo para o express entender o json como parâmetro
+app.use(express.json())
 
-app.post('/test-post', (request, response) => {
-    return response.send("Olá NLW método POST")
-})
-
+// Inicializar as rotas
+app.use(router)
 
 const PORT = process.env.PORT
 // Criando o servidor
-app.listen(PORT, () => console.log(`Server is running at ${PORT}`))
+app.listen(process.env.PORT, () => console.log(`Server is running at ${PORT}`))
 
