@@ -18,3 +18,12 @@ model users {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 }
+
+model tags {
+  id         String   @id @default(uuid())
+  name       String   @unique
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  @@map("tag")
+}
