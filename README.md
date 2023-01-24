@@ -32,6 +32,13 @@ Este projeto foi desenvolvido na trilha de NodeJS durante a NLW#06 e como difere
     - [x] Listar por elogios enviados
     - [x] Listar por elogios recebidos
 
+- Listando Tags
+    - [x] Listar todas as Tags disponíveis
+
+- Listando usuários
+    - [x] Listar todos os usuários cadastrados
+
+    
 ## Rotas
 - Criar novo usuário
 ```bash
@@ -66,6 +73,11 @@ GET /users/compliments/receive
 - Lista elogios enviados
 ```bash
 GET /users/compliments/send
+```
+
+- Lista usuários cadastrados na aplicação
+```bash
+GET /users
 ```
 
 
