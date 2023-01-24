@@ -22,11 +22,15 @@ Este projeto foi desenvolvido na trilha de NodeJS durante a NLW#06 e como difere
 
 - Cadastro de elogios<br>
     - [x] Não é permitido um usuário cadastrar um elogio para si próprio
-    - [] Não é permitido cadastrar elogios para usuários inválidos
-    - [] O usuário precisa estar autenticado na aplicação
+    - [x] Não é permitido cadastrar elogios para usuários inválidos
+    - [x] O usuário precisa estar autenticado na aplicação
     - [x] Validações da mensagem enviada:
         - [x] Mínimo de 10 caracteres
         - [x] Máximo de 220 caracteres
+
+- Listando Elogios
+    - [x] Listar por elogios enviados
+    - [x] Listar por elogios recebidos
 
 ## Rotas
 - Criar novo usuário
@@ -39,15 +43,26 @@ POST /users
 POST /login
 ```
 
-- Criar uma tag
+- Criar uma tag (apenas admin)
 ```bash
 POST /tags
 ```
 
-- Criar Compliment
+- Criar Elogio
 ```bash
 POST /compliments
 ```
+
+- Lista elogios recebidos
+```bash
+GET /users/compliments/receive
+```
+
+- Lista elogios enviados
+```bash
+GET /users/compliments/send
+```
+
 
 ## Diagrama ERD
 <div align="center">
