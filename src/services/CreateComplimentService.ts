@@ -9,7 +9,6 @@ interface IComplimentRequest {
 
 class CreateComplimentService {
     async execute({ user_senderId, user_receiverId, message, tag_id }: IComplimentRequest) {
-
         // Verificar se o user_receiverId é um usuário existente
         const userReceiverExists = await prismaClient.users.findFirst({
             where: {
@@ -37,7 +36,7 @@ class CreateComplimentService {
 
 
         return (compliment)
-
+        
     }
 }
 

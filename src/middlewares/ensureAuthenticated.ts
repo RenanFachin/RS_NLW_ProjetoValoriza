@@ -11,7 +11,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
 
     // Validar se o token é está preenchido (ele vem no formato "Bearer token")
     if (!authToken) {
-        return response.status(401).end()
+        return response.status(401).json("Token does not exist")
     }
 
     // Fazendo um slit e retirando o bearer de junto do token
@@ -31,7 +31,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
 
         return next()
     } catch (error) {
-        return response.status(401).end()
+        return response.status(401).json("Invalid token")
     }
     
 
