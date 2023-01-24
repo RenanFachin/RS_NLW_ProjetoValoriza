@@ -16,13 +16,14 @@ generator erd {
 
 model users {
   id         String   @id @default(uuid())
+  password   String
   name       String
   email      String   @unique
   admin      Boolean  @default(false)
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  sentCompliments      compliments[] @relation("sentMessages")
+  sentCompliments     compliments[] @relation("sentMessages")
   receivedCompliments compliments[] @relation("receivedMessages")
 }
 

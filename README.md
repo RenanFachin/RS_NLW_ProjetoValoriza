@@ -2,6 +2,11 @@
 - Cadastro de usuário<br>
     - [x] Não é permitido cadastrar mais de um usuário com o mesmo e-mail
     - [x] Não é permitido cadastrar usuário sem e-mail
+    - [x] Validações de email válido
+    - [x] Validações de password do usuário
+        - [x] Mínimo de 4 caracteres
+        - [x] Máximo de 16 caracteres
+        - [x] Senha criptografada
 
 - Cadastro de TAG<br>
     - [x] Não é permitido cadastrar tag sem nome
