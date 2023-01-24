@@ -45,7 +45,7 @@ model compliments {
   user_senderId   String
   user_receiverId String
 
-  tag    tags   @relation(fields: [tag_id], references: [id])
+  tag    tags   @relation(fields: [tag_id], references: [id], onDelete: Cascade)
   tag_id String
 
   message    String

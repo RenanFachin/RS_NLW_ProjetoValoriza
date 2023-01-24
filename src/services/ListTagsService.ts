@@ -12,7 +12,6 @@ class ListTagsService {
             }
         })
 
-
         return tags
 
     }
