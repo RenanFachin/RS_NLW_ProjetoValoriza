@@ -7,6 +7,12 @@ class ListUserReceiveComplimentsService {
             where: {
                 user_receiverId
             },
+            // Fazendo retornar o objeto completo de informações do relacionamento
+            include: {
+                receiver: true,
+                sender: true,
+                tag: true
+            }
         })
 
 

@@ -8,6 +8,7 @@ import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ListUserReceiveComplimentsController } from "./controllers/ListUserReceiveComplimentsController";
 import { ListUserSendComplimentsController } from "./controllers/ListUserSendComplimentsController";
+import { ListTagsController } from "./controllers/ListTagsController";
 
 export const router = Router()
 
@@ -17,6 +18,7 @@ const authenticateUserController = new AuthenticateUserController()
 const createComplimentController = new CreateComplimentController()
 const listUserReceiveComplimentsController = new ListUserReceiveComplimentsController()
 const listUserSendComplimentsController = new ListUserSendComplimentsController()
+const listTagsController = new ListTagsController()
 
 
 // Cria usuário
@@ -35,3 +37,6 @@ router.post("/compliments", ensureAuthenticated, createComplimentController.hand
 // Recupera compliments enviados e recebidos
 router.get("/users/compliments/send", ensureAuthenticated, listUserSendComplimentsController.handle)
 router.get("/users/compliments/receive", ensureAuthenticated, listUserReceiveComplimentsController.handle)
+
+// Listando todas as tags
+router.get("/tags", ensureAuthenticated, listTagsController.handle)

@@ -48,6 +48,11 @@ POST /login
 POST /tags
 ```
 
+- Listar as tags existentes
+```bash
+GET /tags
+```
+
 - Criar Elogio
 ```bash
 POST /compliments

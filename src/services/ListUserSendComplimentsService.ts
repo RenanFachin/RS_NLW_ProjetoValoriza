@@ -6,6 +6,12 @@ class ListUserSendComplimentsService {
         const compliments = await prismaClient.compliments.findMany({
             where: {
                 user_senderId
+            },
+            // Fazendo retornar o objeto completo de informações do relacionamento
+            include: {
+                receiver: true,
+                sender: true,
+                tag: true
             }
         })
 
