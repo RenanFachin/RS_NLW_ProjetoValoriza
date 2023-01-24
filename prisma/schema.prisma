@@ -10,6 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 model users {
   id         String   @id @default(uuid())
   name       String
@@ -17,6 +21,9 @@ model users {
   admin      Boolean  @default(false)
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
+
+  sentCompliments      compliments[] @relation("sentMessages")
+  receivedCompliments compliments[] @relation("receivedMessages")
 }
 
 model tags {
@@ -25,5 +32,21 @@ model tags {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  @@map("tag")
+  tag_id compliments[]
+}
+
+model compliments {
+  id String @id @default(uuid())
+
+  sender   users @relation(name: "sentMessages", fields: [user_senderId], references: [id])
+  receiver users @relation(name: "receivedMessages", fields: [user_receiverId], references: [id])
+
+  user_senderId   String
+  user_receiverId String
+
+  tag    tags   @relation(fields: [tag_id], references: [id])
+  tag_id String
+
+  message    String
+  created_at DateTime @default(now())
 }
