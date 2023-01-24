@@ -24,12 +24,44 @@
 POST /users
 ```
 
+- Autenticação do usuário
+```bash
+POST /login
+```
+
 - Criar uma tag
 ```bash
-POST tags
+POST /tags
 ```
 
 ## Diagrama ERD
 <div align="center">
     <img width="50%" alt="Diagrama ERD" src="./prisma/ERD.svg">
 </div>
+
+
+## Instalação
+Faça o clone do repositório e acessar na pasta server
+
+```bash
+git clone https://github.com/RenanFachin/RS_NLW_ProjetoValoriza
+
+cd server
+```
+
+Adicionar as variáveis de ambiente da aplicação
+
+Rodando o banco de dados
+```bash
+npx prisma migrate dev
+```
+
+Instalando as dependências
+```bash
+npm i
+```
+
+Rodando o servidor
+```bash
+npm run dev
+```

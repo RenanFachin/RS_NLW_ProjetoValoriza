@@ -42,11 +42,8 @@ class CreateUserService {
             }
         })
 
-        
-        return ({
-            name,
-            email
-        })
+
+        return (user)
     }
 
 }
