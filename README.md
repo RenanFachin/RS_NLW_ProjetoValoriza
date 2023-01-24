@@ -1,3 +1,7 @@
+# PROJETO VALORIZA
+Projeto de um back-end de uma plataforma para promover o reconhecimento entre companheiros de equipe.<br>
+Este projeto foi desenvolvido na trilha de NodeJS durante a NLW#06 e como diferenciais, propus o uso do Prisma como ORM e valizações dos parâmetros enviados com o ZOD.
+
 ## Regras da aplicação
 - Cadastro de usuário<br>
     - [x] Não é permitido cadastrar mais de um usuário com o mesmo e-mail
@@ -56,21 +60,19 @@ Faça o clone do repositório e acessar na pasta server
 
 ```bash
 git clone https://github.com/RenanFachin/RS_NLW_ProjetoValoriza
-
-cd server
-```
-
-Adicionar as variáveis de ambiente da aplicação
-
-Rodando o banco de dados
-```bash
-npx prisma migrate dev
 ```
 
 Instalando as dependências
 ```bash
 npm i
 ```
+
+Rodando o banco de dados
+```bash
+npx prisma migrate dev
+```
+
+Adicionar as variáveis de ambiente da aplicação
 
 Rodando o servidor
 ```bash

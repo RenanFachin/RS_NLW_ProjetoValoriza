@@ -1,10 +1,22 @@
 import { Response, Request, NextFunction } from "express";
+import { prismaClient } from "../lib/prisma";
 
-export function ensureAdmin(request: Request, response: Response, next: NextFunction) {
-    // Verificar se o usuário é admin
-    const admin = true;
+export async function ensureAdmin(request: Request, response: Response, next: NextFunction) {
+    // pegando user_id (id do usuário) de dentro do request
+    const { user_id } = request
+    // console.log(user_id)
 
-    if (admin) {
+
+    // Verificar se o usuário é admin no db
+    const isUserAdmin = await prismaClient.users.findFirst({
+        where: {
+            id: user_id
+        },
+    })
+
+    // console.log(isUserAdmin.admin)
+
+    if (isUserAdmin.admin) {
         return next()
     }
 

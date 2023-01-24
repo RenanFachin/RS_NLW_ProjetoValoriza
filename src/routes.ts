@@ -5,6 +5,7 @@ import { AuthenticateUserController } from './controllers/AuthenticateUserContro
 import { CreateComplimentController } from "./controllers/CreateComplimentController";
 
 import { ensureAdmin } from "./middlewares/ensureAdmin";
+import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 
 export const router = Router()
 
@@ -15,7 +16,9 @@ const createComplimentController = new CreateComplimentController()
 
 
 router.post("/users", createUserController.handle)
-router.post("/tags", ensureAdmin, createTagController.handle)
+
+// Primeiro faz a autenticação e depois verificar se o usuário é admin
+router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handle)
 router.post("/login", authenticateUserController.handle)
 
-router.post("/compliments", createComplimentController.handle)
+router.post("/compliments", ensureAuthenticated, createComplimentController.handle)
