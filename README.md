@@ -8,15 +8,21 @@
         - [x] Máximo de 16 caracteres
         - [x] Senha criptografada
 
+- Autenticação do usuário<br>
+    - [x] Autenticação do usuário utilizando jwt
+
 - Cadastro de TAG<br>
     - [x] Não é permitido cadastrar tag sem nome
     - [x] Não é permitido cadastrar mais de uma tag com o mesmo nome
     - [x] Não é permitido o cadastro por usuários que não sejam administradores
 
 - Cadastro de elogios<br>
-    - [] Não é permitido um usuário cadastrar um elogio para si próprio
+    - [x] Não é permitido um usuário cadastrar um elogio para si próprio
     - [] Não é permitido cadastrar elogios para usuários inválidos
     - [] O usuário precisa estar autenticado na aplicação
+    - [x] Validações da mensagem enviada:
+        - [x] Mínimo de 10 caracteres
+        - [x] Máximo de 220 caracteres
 
 ## Rotas
 - Criar novo usuário
@@ -32,6 +38,11 @@ POST /login
 - Criar uma tag
 ```bash
 POST /tags
+```
+
+- Criar Compliment
+```bash
+POST /compliments
 ```
 
 ## Diagrama ERD
